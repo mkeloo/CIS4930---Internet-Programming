@@ -1,0 +1,10 @@
+"Moksh Keloo","PHP: Hypertext Preprocessor",//|#,varKeyword,createCookie(),begin_session(),40
+mokshkeloo@yahoo.com,"Personal Home Page",#,atSymbol,cookie(),session_start(),20
+"Moksh Keloo","PHP: Hypertext Preprocessor",#,varKeyword,setcookie(),start_session(),40
+"Moksh Keloo","PHP: Hypertext Preprocessor","/* */",varKeyword,setcookie(),session_start(),60
+d,"PHP: Hypertext Preprocessor",#,atSymbol,cookie(),session_start(),40
+"Moksh Keloo","Personal Home Page",//|#,dollarSign,setcookie(),session_start(),80
+"Moksh Keloo","PHP: Hypertext Preprocessor","//|#|/* */",varKeyword,createCookie(),session_start(),60
+"John Doe","PHP: Hypertext Preprocessor",//|#,dollarSign,setcookie(),session_start(),100
+"Moksh Keloo","PHP: Hypertext Preprocessor","/* */",dollarSign,setcookie(),session_start(),80
+d,"PHP: Hypertext Preprocessor",#,varKeyword,cookie(),session_start(),40

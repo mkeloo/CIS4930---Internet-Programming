@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <title>CIS 4930: Internet Computing</title>
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <style>
+      /* Base styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f4f4f4;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      hr {
+        border: 0;
+        height: 2px;
+        background-color: #333;
+      }
+
+      p,
+      li,
+      td {
+        /* font-size: 16px; */
+        color: #333;
+        margin: 10px;
+      }
+
+      ul,
+      ol {
+        padding-left: 20px;
+        list-style-type: none;
+      }
+
+      a:link,
+      a:visited {
+        color: blue;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+
+      a:hover,
+      a:active {
+        color: darkred;
+        text-decoration: underline;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+      }
+
+      .main-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      .underline-text {
+        text-decoration: underline;
+      }
+
+      .first-page-paragraph {
+        line-height: 1.7;
+        margin-bottom: 5px;
+        font-size: 1.03rem;
+      }
+
+      .topic-heading {
+        color: #002646;
+        margin-bottom: 10px;
+      }
+      .content-paragraph {
+        line-height: 1.6;
+        /* color: #333333; */
+        margin-bottom: 40px;
+        padding: 30px;
+        font-size: 1.15rem;
+      }
+
+      /* Assessment Page */
+      .assessment-heading {
+        margin-bottom: 20px;
+        text-decoration: underline;
+        font-size: 1.5rem;
+      }
+
+      .assessment-section {
+        align-items: center;
+      }
+
+      .ul-items {
+        margin: 10px;
+      }
+
+      .correct-feedback {
+        color: rgb(1, 44, 1);
+        font-weight: bold;
+        background-color: lightgreen;
+      }
+      .incorrect-feedback {
+        color: rgb(119, 0, 0);
+        font-weight: bold;
+        background-color: rgb(255, 160, 160);
+      }
+
+      .question-list-item {
+        margin-bottom: 20px;
+      }
+
+      .list-item {
+        font-weight: bold;
+        color: black;
+      }
+
+      .img-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Assessment & Feedback Page */
+      .feedback-table {
+        width: 100%;
+        border-collapse: collapse;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+        margin-bottom: 20px;
+      }
+
+      .feedback-table th,
+      .feedback-table td {
+        border: 1px solid #e0e0e0;
+        padding: 12px 15px;
+        text-align: left;
+      }
+
+      .feeback-heading {
+        font-size: 2rem;
+        color: black;
+        margin-bottom: 20px;
+        text-decoration: underline;
+      }
+
+      .feedback-table th {
+        background-color: #f9f9f9;
+        color: #333;
+        font-size: 16px;
+      }
+
+      .feedback-link {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .feedback-link:hover {
+        text-decoration: underline;
+      }
+
+      /* content page */
+      .objectives-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 40px;
+        /* font-size: 1rem; */
+      }
+      .objectives-table th,
+      .objectives-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        /* font-size: 1rem; */
+      }
+
+      .objectives-table tr {
+        font-size: 1rem;
+      }
+      .objectives-table th {
+        background-color: #f2f2f2;
+        text-align: left;
+      }
+      .objective-topic {
+        font-weight: bold;
+        color: black;
+      }
+      /* Responsive adjustments */
+      @media screen and (max-width: 768px) {
+        .objectives-table th,
+        .objectives-table td {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+        .objectives-table tr {
+          font-size: 1rem;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .objectives-table tr {
+          font-size: 1rem;
+        }
+        .objectives-table th,
+        .objectives-table td {
+          border: 1px solid #ddd;
+          padding: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="main-title">ePortfolio for CIS 4930: Internet Computing</h1>
+      <h2 style="text-align: center">Moksh Keloo</h2>
+    </header>
+    <hr />
+    <section>
+      <h3>
+        <a href="assign1/index.html"
+          >Assignment 1: Introduction to HTML and CSS</a
+        >
+      </h3>
+      <p class="first-page-paragraph">
+        Assignment 1 provided a thorough dive into the basics of HTML and CSS.
+        The task was to create a web page that used basic HTML syntax for
+        structure and CSS for styling, highlighting the role each plays in web
+        development.
+      </p>
+      <p class="first-page-paragraph">
+        After completing this assignment, I gained more knowledge about the
+        significance of well formatted HTML and the various ways that CSS can
+        enhance a page's appearance. It was difficult at first to learn how to
+        style a page using various CSS layout techniques and tags, but once I
+        got the hang of it, styling the page with basic CSS tags was much
+        simpler. This experience has helped me to better understand the
+        fundamentals of web development.
+      </p>
+      <h4 class="underline-text">Key Learning Outcomes:</h4>
+      <table class="objectives-table">
+        <tr>
+          <td class="objective-topic">
+            1. Understanding the Basic Structure of HTML
+          </td>
+        </tr>
+        <tr>
+          <td class="objective-topic">2. Exploring the Fundamentals of CSS</td>
+        </tr>
+        <tr>
+          <td class="objective-topic">
+            3. Combining HTML and CSS for Web Development
+          </td>
+        </tr>
+        <tr>
+          <td class="objective-topic">
+            4. Learning Basic Web Development Tools
+          </td>
+        </tr>
+      </table>
+      <hr />
+    </section>
+    <section>
+      <h3>
+        <a href="assign2/index.html"
+          >Assignment 2: Interactive Form and Decision Control</a
+        >
+      </h3>
+      <p class="first-page-paragraph">
+        Assignment 2 focuses on creating an interactive form that collects user
+        information and uses decision control structures to provide custom
+        feedback. This assignment improves my understanding of web forms,
+        JavaScript, and the Document Object Model (DOM).
+      </p>
+
+      <h4 class="underline-text">Key Learning Outcomes:</h4>
+      <table class="objectives-table">
+        <tr>
+          <td class="objective-topic">1. Form Creation and Input Handling</td>
+        </tr>
+        <tr>
+          <td class="objective-topic">2. JavaScript Form Validation</td>
+        </tr>
+        <tr>
+          <td class="objective-topic">
+            3. Decision Making with Control Structures
+          </td>
+        </tr>
+        <tr>
+          <td class="objective-topic">4. DOM Manipulation</td>
+        </tr>
+      </table>
+      <h4 class="underline-text">
+        Checkout the Form by clicking on the assignment title above!
+      </h4>
+      <hr />
+    </section>
+
+    <section>
+      <h3>
+        <a href="assign3/index.html"
+          >Assignment 3: Data Analysis with JavaScript</a
+        >
+      </h3>
+      <p class="first-page-paragraph">
+        In Assignment 3, the focus was on utilizing repetition control
+        structures and arrays to develop a program capable of computing a
+        variety of descriptive statistics based on user-provided data. This
+        assignment involved creating a form to collect numbers from users, and a
+        suite of JavaScript functions to analyze this data.
+      </p>
+      <p class="first-page-paragraph">
+        Through this assignment, I have deepened my understanding of
+        JavaScript's capabilities in handling arrays and performing mathematical
+        computations, enhancing my skills in data analysis and manipulation in
+        web development contexts.
+      </p>
+      <h4 class="underline-text">Key Learning Outcomes:</h4>
+      <table class="objectives-table">
+        <tr>
+          <td class="objective-topic">
+            1. Implementing Repetition Control Structures
+          </td>
+        </tr>
+        <tr>
+          <td class="objective-topic">2. Utilizing Arrays in JavaScript</td>
+        </tr>
+        <tr>
+          <td class="objective-topic">
+            3. Developing Functions for Data Analysis
+          </td>
+        </tr>
+        <tr>
+          <td class="objective-topic">
+            4. Enhancing Interactivity with User Input
+          </td>
+        </tr>
+        <tr>
+          <td class="objective-topic">
+            5. Applying Statistical Concepts in Programming
+          </td>
+        </tr>
+      </table>
+    </section>
+    <hr />
+
+    <section>
+      <h3>
+        <a href="assign4/index.html"
+          >Assignment 4: Responsive Web Design with Bootstrap & jQuery</a
+        >
+      </h3>
+      <p class="first-page-paragraph">
+        In Assignment 4, we integrated Bootstrap and jQuery into the current
+        webpage (Assignment 2) to create responsive and interactive pages. This
+        project uses Bootstrap's grid structure and responsive utilities to
+        develop a travel preferences survey form that adjusts to various devices
+        and screen sizes. We used jQuery to enhance the user experience with
+        dynamic content manipulation and form validation.
+      </p>
+      <p class="first-page-paragraph">
+        This project helped me improve my web development skills, including
+        developing user-centered interfaces and writing clean JavaScript code.
+        This assignment has improved my skills to develop practical, visually
+        appealing, and accessible web sites for multiple devices.
+      </p>
+      <h4 class="underline-text">Key Learning Outcomes:</h4>
+      <table class="objectives-table">
+        <tr>
+          <td class="objective-topic">
+            1. Responsive Web Design with Bootstrap's Grid System
+          </td>
+        </tr>
+        <tr>
+          <td class="objective-topic">2. Interactive Elements with jQuery</td>
+        </tr>
+        <tr>
+          <td class="objective-topic">
+            3. Form Validation and Dynamic Content Manipulation
+          </td>
+        </tr>
+        <tr>
+          <td class="objective-topic">
+            4. Cross-Device Compatibility and Accessibility
+          </td>
+        </tr>
+      </table>
+    </section>
+    <hr />
+    <section>
+      <h3>
+        <!-- For Production -->
+        <!-- <a href="https://www.cise.ufl.edu/~mkeloo/cis4930/assign5/index.php"
+          >Assignment 5: Advanced Web Development</a
+        > -->
+        <!-- For Local -->
+        <a href="assign5/index.php"
+          >Assignment 5: Server-Side Scripting with PHP</a
+        >
+      </h3>
+      <p class="first-page-paragraph">
+        Assignment 5 takes web development to the next level by exploring
+        advanced concepts such as server-side or backend technologies. In this
+        assignment, we delved into topics such as server-side scripting with
+        PHP, reading and writing data into csv files, and creating a dynamic web
+        application using HTML, CSS, jQuery, & PHP.
+      </p>
+      <p class="first-page-paragraph">
+        This assignment has provided me with valuable insights into creating
+        dynamic web applications and understanding the backend components of web
+        development.
+      </p>
+      <!-- Admin page link -->
+      <h6 class="underline-text">
+        <a href="assign5/admin.php">Admin Page to see the Quiz Statistics</a>
+      </h6>
+      <h4 class="underline-text">Key Learning Outcomes:</h4>
+      <table class="objectives-table">
+        <tr>
+          <td class="objective-topic">1. Server-Side Scripting with PHP</td>
+        </tr>
+        <tr>
+          <td class="objective-topic">
+            2. Reading and Writing Data into CSV Files
+          </td>
+        </tr>
+        <tr>
+          <td class="objective-topic">
+            3. Creating a Dynamic Web Application using HTML, CSS, jQuery, &
+            PHP.
+          </td>
+        </tr>
+        <tr>
+          <td class="objective-topic">
+            4. Understanding the Backend Components of Web Development
+          </td>
+        </tr>
+      </table>
+    </section>
+    <hr />
+    <section>
+      <h3>
+        <!-- Link to Assignment 6 -->
+        <a href="assign6/index.php"
+          >Assignment 6: Database Integration with Web Applications</a
+        >
+      </h3>
+      <p class="first-page-paragraph">
+        Assignment 6 introduced the integration of databases with web
+        applications. The key focus was on creating, reading, updating, and
+        deleting (CRUD) operations using a MySQL database in conjunction with
+        server-side scripting in PHP.
+      </p>
+      <p class="first-page-paragraph">
+        I got to have a hands-on experience in this assignment with relational
+        database management and the use of SQL to interact with a database. It
+        also reinforced the importance of secure programming practices to
+        prevent SQL injection attacks.
+      </p>
+      <h4 class="underline-text">Key Learning Outcomes:</h4>
+      <table class="objectives-table">
+        <tr>
+          <td class="objective-topic">
+            1. Implementing CRUD Operations in Web Applications
+          </td>
+        </tr>
+        <tr>
+          <td class="objective-topic">
+            2. Integrating PHP and MySQL for Dynamic Content Management
+          </td>
+        </tr>
+        <tr>
+          <td class="objective-topic">
+            3. Using Best Practices for Database Security and SQL Injection
+          </td>
+        </tr>
+      </table>
+    </section>
+    <hr />
+    <section>
+      <h3>
+        <!-- Link to Assignment 7 -->
+        <a href="assign7/index.php"
+          >Assignment 7: AJAX: Asynchronous JavaScript and XML</a
+        >
+      </h3>
+      <p class="first-page-paragraph">
+        Assignment 7 focused on the use of AJAX to improve user experience by
+        enabling asynchronous data retrieval without refreshing the web page.
+        This assignment involved creating a user-interactive web application
+        that filters and displays movie data from a server-side database in real
+        time.
+      </p>
+      <p class="first-page-paragraph">
+        Personally, the challenging part was to understand and implement AJAX
+        calls using JavaScript and manage the server response with PHP. Although
+        by completing this assignment, I did learn how to manipulate the DOM
+        based on user actions and make web pages more dynamic and responsive
+        using JavaScript & Ajax.
+      </p>
+      <h4 class="underline-text">Key Learning Outcomes:</h4>
+      <table class="objectives-table">
+        <tr>
+          <td class="objective-topic">
+            1. Implementing AJAX for Asynchronous Data Fetching
+          </td>
+        </tr>
+        <tr>
+          <td class="objective-topic">
+            2. Dynamic Content Display with DOM Manipulation
+          </td>
+        </tr>
+      </table>
+
+      <hr />
+    </section>
+  </body>
+</html>

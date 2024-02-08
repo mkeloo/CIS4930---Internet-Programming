@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statistics Calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="statistics.js"></script>
+    <script>
+      function calculateStatistics() {
+        const input = document.getElementById('numbersInput').value;
+        const numberArray = input.split(',').map(Number);
+        document.getElementById('n').innerText = findN(numberArray).toFixed(2);
+        document.getElementById('sum').innerText =
+          findSum(numberArray).toFixed(2);
+        document.getElementById('mean').innerText =
+          findMean(numberArray).toFixed(2);
+        document.getElementById('median').innerText =
+          findMedian(numberArray).toFixed(2);
+        document.getElementById('mode').innerText =
+          findMode(numberArray).toFixed(2);
+        document.getElementById('max').innerText =
+          findMax(numberArray).toFixed(2);
+        document.getElementById('min').innerText =
+          findMin(numberArray).toFixed(2);
+        document.getElementById('range').innerText =
+          findRange(numberArray).toFixed(2);
+        document.getElementById('variance').innerText =
+          findVariance(numberArray).toFixed(2);
+        document.getElementById('standardDeviation').innerText =
+          findStandardDeviation(numberArray).toFixed(2);
+      }
+    </script>
+  </head>
+  <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div class="container mx-auto p-8">
+      <h1 class="text-3xl font-bold leading-tight mb-6 flex justify-center">
+        Statistics Calculator
+      </h1>
+      <h4 class="flex justify-center align-center text-xl font-bold mb-4">
+        (Assignment 3)
+      </h4>
+      <hr class="my-4 mb-8" />
+      <form
+        onsubmit="event.preventDefault(); calculateStatistics();"
+        class="mb-4"
+      >
+        <label
+          for="numbersInput"
+          class="block text-gray-700 text-mg font-bold mb-2"
+          >Enter numbers separated by commas:</label
+        >
+        <textarea
+          id="numbersInput"
+          name="numbersInput"
+          rows="4"
+          class="shadow appearance-none border rounded-xl w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        ></textarea>
+        <button
+          type="submit"
+          class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        >
+          Calculate Statistics
+        </button>
+      </form>
+      <h2 class="text-2xl font-bold leading-tight mb-4">Results</h2>
+      <div
+        id="results"
+        class="bg-white shadow-xl rounded-xl px-8 pt-6 pb-8 mb-4"
+      >
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="bg-gray-100 p-4 rounded-lg shadow">
+            <p class="text-lg font-semibold text-gray-700">N (Count)</p>
+            <p id="n" class="text-lg font-bold text-gray-800">-</p>
+          </div>
+          <div class="bg-gray-100 p-4 rounded-lg shadow">
+            <p class="text-lg font-semibold text-gray-700">Sum</p>
+            <p id="sum" class="text-lg font-bold text-gray-800">-</p>
+          </div>
+          <div class="bg-gray-100 p-4 rounded-lg shadow">
+            <p class="text-lg font-semibold text-gray-700">Mean</p>
+            <p id="mean" class="text-lg font-bold text-gray-800">-</p>
+          </div>
+          <div class="bg-gray-100 p-4 rounded-lg shadow">
+            <p class="text-lg font-semibold text-gray-700">Median</p>
+            <p id="median" class="text-lg font-bold text-gray-800">-</p>
+          </div>
+          <div class="bg-gray-100 p-4 rounded-lg shadow">
+            <p class="text-lg font-semibold text-gray-700">Mode</p>
+            <p id="mode" class="text-lg font-bold text-gray-800">-</p>
+          </div>
+          <div class="bg-gray-100 p-4 rounded-lg shadow">
+            <p class="text-lg font-semibold text-gray-700">Max</p>
+            <p id="max" class="text-lg font-bold text-gray-800">-</p>
+          </div>
+          <div class="bg-gray-100 p-4 rounded-lg shadow">
+            <p class="text-lg font-semibold text-gray-700">Min</p>
+            <p id="min" class="text-lg font-bold text-gray-800">-</p>
+          </div>
+          <div class="bg-gray-100 p-4 rounded-lg shadow">
+            <p class="text-lg font-semibold text-gray-700">Range</p>
+            <p id="range" class="text-lg font-bold text-gray-800">-</p>
+          </div>
+          <div class="bg-gray-100 p-4 rounded-lg shadow">
+            <p class="text-lg font-semibold text-gray-700">Variance</p>
+            <p id="variance" class="text-lg font-bold text-gray-800">-</p>
+          </div>
+          <div class="bg-gray-100 p-4 rounded-lg shadow">
+            <p class="text-lg font-semibold text-gray-700">
+              Standard Deviation
+            </p>
+            <p id="standardDeviation" class="text-lg font-bold text-gray-800">
+              -
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center align-center">
+        <div
+          class="flex justify-center align-center m-6 mb-4 text-blue-600 underline font-bold text-lg"
+        >
+          <a href="../assign3/tests.html" class="link"
+            >Checkout the Tests page</a
+          >
+        </div>
+        <div class="p-4 font-bold text-xl">or</div>
+        <div
+          class="flex justify-center align-center m-6 mb-4 text-blue-600 underline font-bold text-lg"
+        >
+          <a href="../index.html" class="link">Return to Home Page</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

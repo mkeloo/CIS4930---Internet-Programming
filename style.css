@@ -1,0 +1,215 @@
+/* Base styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f4f4f4;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+hr {
+  border: 0;
+  height: 2px;
+  background-color: #333;
+}
+
+p,
+li,
+td {
+  font-size: 16px;
+  color: #333;
+  margin: 10px;
+}
+
+ul,
+ol {
+  padding-left: 20px;
+  list-style-type: none;
+}
+
+a:link,
+a:visited {
+  color: blue;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+a:hover,
+a:active {
+  color: darkred;
+  text-decoration: underline;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.underline-text {
+  text-decoration: underline;
+}
+
+.first-page-paragraph {
+  line-height: 1.7;
+  margin-bottom: 5px;
+  font-size: 1.03rem;
+}
+/* content page */
+.objectives-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+}
+.objectives-table th,
+.objectives-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+.objectives-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+.objective-topic {
+  font-weight: bold;
+  color: black;
+}
+
+.topic-heading {
+  color: #002646;
+  margin-bottom: 10px;
+}
+.content-paragraph {
+  line-height: 1.6;
+  /* color: #333333; */
+  margin-bottom: 40px;
+  padding: 30px;
+  font-size: 1.15rem;
+}
+
+/* Assessment Page */
+.assessment-heading {
+  margin-bottom: 20px;
+  text-decoration: underline;
+  font-size: 1.5rem;
+}
+
+.assessment-section {
+  /* display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.ul-items {
+  margin: 10px;
+}
+
+.correct-feedback {
+  color: rgb(1, 44, 1);
+  font-weight: bold;
+  background-color: lightgreen;
+}
+.incorrect-feedback {
+  color: rgb(119, 0, 0);
+  font-weight: bold;
+  background-color: rgb(255, 160, 160);
+}
+
+.question-list-item {
+  margin-bottom: 20px;
+}
+
+.list-item {
+  font-weight: bold;
+  color: black;
+}
+
+.img-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Assessment & Feedback Page */
+/* .feedback-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.feedback-table th,
+.feedback-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.feedback-table th {
+  background-color: #f2f2f2;
+}
+
+.feedback-link {
+  color: blue;
+  text-decoration: underline;
+} */
+
+/* Assessment & Feedback Page */
+.feedback-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  margin-bottom: 20px;
+}
+
+.feedback-table th,
+.feedback-table td {
+  border: 1px solid #e0e0e0;
+  padding: 12px 15px;
+  text-align: left;
+}
+
+.feeback-heading {
+  font-size: 2rem;
+  color: black;
+  margin-bottom: 20px;
+  text-decoration: underline;
+}
+
+.feedback-table th {
+  background-color: #f9f9f9;
+  color: #333;
+  font-size: 16px;
+}
+
+.feedback-link {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.feedback-link:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statistics Calculator - Unit Tests</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="statistics.js"></script>
+  </head>
+  <body class="bg-gray-100 font-sans leading-normal tracking-normal">
+    <div class="container mx-auto p-8">
+      <h1 class="text-3xl font-bold leading-tight mb-6 text-center">
+        Unit Test Results
+      </h1>
+      <table class="table-auto w-full mb-6">
+        <thead>
+          <tr>
+            <th class="px-4 py-2">Function</th>
+            <th class="px-4 py-2">Data Set</th>
+            <th class="px-4 py-2">Expected Result</th>
+            <th class="px-4 py-2">Actual Result</th>
+            <th class="px-4 py-2">Pass/Fail</th>
+          </tr>
+        </thead>
+        <tbody id="test-results"></tbody>
+      </table>
+    </div>
+    <script>
+      const testDataSets = [
+        [1, 2, 3, 4, 5],
+        [10, 20, 30, 40, 50],
+        [-5, 5, -10, 10, 0],
+      ];
+
+      const expectedResults = {
+        n: [5, 5, 5],
+        sum: [15, 150, 0],
+        mean: [3, 30, 0],
+        median: [3, 30, 0],
+        mode: [[1, 2, 3, 4, 5], [10, 20, 30, 40, 50], [0]],
+        max: [5, 50, 10],
+        min: [1, 10, -10],
+        range: [4, 40, 20],
+        variance: [2.5, 250, 50],
+        standardDeviation: [1.58, 15.81, 7.07],
+      };
+
+      function runTests() {
+        testDataSets.forEach((dataSet, index) => {
+          const n = findN(dataSet);
+          const sum = findSum(dataSet);
+          const mean = findMean(dataSet);
+          const median = findMedian(dataSet);
+          const mode = findMode(dataSet);
+          const max = findMax(dataSet);
+          const min = findMin(dataSet);
+          const range = findRange(dataSet);
+          const variance = findVariance(dataSet);
+          const standardDeviation = findStandardDeviation(dataSet);
+
+          function addTestResult(functionName, expected, actual) {
+            const resultRow = `
+            <tr>
+              <td class="border px-4 py-2">${functionName}</td>
+              <td class="border px-4 py-2">${dataSet.join(', ')}</td>
+              <td class="border px-4 py-2">${expected}</td>
+              <td class="border px-4 py-2">${actual}</td>
+              <td class="border px-4 py-2">${
+                expected === actual ? 'Pass' : 'Fail'
+              }</td>
+            </tr>
+          `;
+            document.getElementById('test-results').innerHTML += resultRow;
+          }
+
+          addTestResult('N', expectedResults.n[index], n);
+          addTestResult('Sum', expectedResults.sum[index], sum);
+          addTestResult('Mean', expectedResults.mean[index], mean);
+          addTestResult('Median', expectedResults.median[index], median);
+          addTestResult(
+            'Mode',
+            JSON.stringify(expectedResults.mode[index]),
+            JSON.stringify(mode)
+          );
+          addTestResult('Max', expectedResults.max[index], max);
+          addTestResult('Min', expectedResults.min[index], min);
+          addTestResult('Range', expectedResults.range[index], range);
+          addTestResult(
+            'Variance',
+            expectedResults.variance[index].toFixed(2),
+            variance.toFixed(2)
+          );
+          addTestResult(
+            'Standard Deviation',
+            expectedResults.standardDeviation[index].toFixed(2),
+            standardDeviation.toFixed(2)
+          );
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', runTests);
+    </script>
+    <div
+      class="flex justify-center align-center mb-4 text-blue-600 underline font-bold text-lg"
+    >
+      <a href="../assign3/index.html" class="link"
+        >Return To Statistic Calculator</a
+      >
+    </div>
+  </body>
+</html>

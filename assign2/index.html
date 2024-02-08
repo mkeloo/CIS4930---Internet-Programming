@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Travel Preferences Survey - Assignment 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      function validateForm() {
+        let isValid = true;
+        let errors = '';
+
+        const name = document.getElementById('name').value;
+        if (!name) {
+          isValid = false;
+          errors += 'Name is required.\n';
+        }
+
+        // validate radio buttons for travel season
+        const seasonSelected = document.querySelector(
+          'input[name="season"]:checked'
+        );
+        if (!seasonSelected) {
+          isValid = false;
+          errors += 'Please select a travel season.\n';
+        }
+
+        // validate checkboxes for travel interests
+        const interests = document.querySelectorAll(
+          'input[name="interests[beach]"], input[name="interests[mountains]"], input[name="interests[historiclandmarks]"], input[name="interests[nature&wildlifeexploration]"]'
+        );
+        const interestSelected = Array.from(interests).some(
+          (checkbox) => checkbox.checked
+        );
+        if (!interestSelected) {
+          isValid = false;
+          errors += 'Please select at least one travel interest.\n';
+        }
+
+        // validate dropdown for preferred destination
+        const destination = document.getElementById('destination').value;
+        if (!destination) {
+          isValid = false;
+          errors += 'Please select a preferred destination.\n';
+        }
+
+        return { isValid, errors };
+      }
+
+      function processForm() {
+        const validation = validateForm();
+        if (!validation.isValid) {
+          document.getElementById('errorMessages').innerText =
+            validation.errors;
+        } else {
+          // clear error messages
+          document.getElementById('errorMessages').innerText = '';
+          document.getElementById('resultOutput').innerText = ''; // clear result output on error
+        }
+
+        const name = document.getElementById('name').value;
+        const season = document.querySelector(
+          'input[name="season"]:checked'
+        ).value;
+        let interests = [];
+        document
+          .querySelectorAll('input[name^="interests"]:checked')
+          .forEach((checkbox) => {
+            interests.push(checkbox.id.replace('interest', ''));
+          });
+        const destination = document.getElementById('destination').value;
+
+        let result = `Thank you for participating in the survey, ${name}!\n`;
+        result += `You prefer to travel in ${season} to ${destination}. Your interests include going to ${interests.join(
+          ', '
+        )}.\n`;
+
+        // custom recommendation logic for destinations and seasons
+        switch (destination) {
+          case 'Africa':
+            result +=
+              season === 'summer'
+                ? 'Explore the safaris in Kenya and the pyramids in Egypt.'
+                : season === 'winter'
+                ? "Visit Cape Town's vibrant city life or Morocco's historic sites."
+                : 'Enjoy the serene beauty of the Sahara in fall.';
+            break;
+          case 'Asia':
+            result +=
+              season === 'summer'
+                ? "Experience Bali's beaches or Tokyo's bustling streets."
+                : season === 'winter'
+                ? 'Visit the snowy mountains of Hokkaido or historical sites in China.'
+                : 'Autumn in Kyoto offers breathtaking foliage views.';
+            break;
+          case 'Europe':
+            result +=
+              season === 'summer'
+                ? 'Discover the Greek Islands or the French Riviera.'
+                : season === 'winter'
+                ? 'Enjoy the Swiss Alps or Christmas Markets in Germany.'
+                : 'Fall brings colorful scenes in the Tuscan vineyards.';
+            break;
+          case 'USA':
+            result +=
+              season === 'summer'
+                ? "Visit Yellowstone National Park or Miami's beaches."
+                : season === 'winter'
+                ? "Explore New York City's winter charm or ski in Aspen."
+                : 'The fall foliage in New England is a must-see.';
+            break;
+          default:
+            result += 'Explore local attractions and hidden gems!';
+            break;
+        }
+
+        // Adding interests into recommendations
+        if (interests.includes('Beach')) {
+          result +=
+            "\nDon't forget to check out the best beaches in the country!";
+        }
+        if (interests.includes('Mountains')) {
+          result += '\nMountain hiking trails can be a great adventure!';
+        }
+        if (interests.includes('HistoricLandmarks')) {
+          result +=
+            '\nMake sure to visit historical landmarks and immerse yourself in the local culture.';
+        }
+        if (interests.includes('Nature&WildlifeExploration')) {
+          result +=
+            '\nNature reserves and wildlife exploration tours can be an incredible experience.';
+        }
+
+        // Clear error messages and result output on form reset
+        document.querySelector('form').addEventListener('reset', () => {
+          document.getElementById('errorMessages').innerText = '';
+          document.getElementById('resultOutput').innerText = '';
+        });
+        // displaying the result
+        document.getElementById('resultOutput').innerText = result;
+      }
+    </script>
+  </head>
+  <body class="m-4 bg-gray-100 font-sans leading-normal tracking-normal">
+    <header class="text-center my-4">
+      <h1 class="text-4xl font-bold">Travel Preferences Survey</h1>
+      <h4 class="flex justify-center align-center text-xl font-bold m-4">
+        (Assignment 2)
+      </h4>
+      <hr class="my-4 mb-8" />
+    </header>
+    <section>
+      <form class="max-w-2xl mx-auto">
+        <div class="mb-4">
+          <label class="block text-gray-700 text-md font-bold mb-2" for="name"
+            >Your Name:</label
+          >
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Enter your name"
+            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 text-md font-bold mb-2"
+            >Favorite Travel Season:</label
+          >
+          <div class="grid grid-cols-3 m-4">
+            <div class="flex items-center mb-2">
+              <input
+                type="radio"
+                id="seasonSummer"
+                name="season"
+                value="summer"
+                class="mr-2"
+              />
+              <label for="seasonSummer" class="text-sm">Summer</label>
+            </div>
+            <div class="flex items-center mb-2">
+              <input
+                type="radio"
+                id="seasonFall"
+                name="season"
+                value="fall"
+                class="mr-2"
+              />
+              <label for="seasonFall" class="text-sm">Fall</label>
+            </div>
+            <div class="flex items-center mb-2">
+              <input
+                type="radio"
+                id="seasonWinter"
+                name="season"
+                value="winter"
+                class="mr-2"
+              />
+              <label for="seasonWinter" class="text-sm">Winter</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="block text-gray-700 text-md font-bold mb-2"
+            >Travel Interests:</label
+          >
+          <div class="grid grid-cols-2 m-4">
+            <div class="flex items-center mb-2">
+              <input
+                type="checkbox"
+                id="interestBeach"
+                name="interests[beach]"
+                class="mr-2"
+              />
+              <label for="interestBeach" class="text-sm">Beaches</label>
+            </div>
+            <div class="flex items-center mb-2">
+              <input
+                type="checkbox"
+                id="interestMountains"
+                name="interests[mountains]"
+                class="mr-2"
+              />
+              <label for="interestMountains" class="text-sm">Mountains</label>
+            </div>
+            <div class="flex items-center mb-2">
+              <input
+                type="checkbox"
+                id="interestHistoric Landmarks"
+                name="interests[historiclandmarks]"
+                class="mr-2"
+              />
+              <label for="interestHistoricLandmarks" class="text-sm"
+                >Historic Landmarks</label
+              >
+            </div>
+            <div class="flex items-center mb-2">
+              <input
+                type="checkbox"
+                id="interestNature & Wildlife Exploration"
+                name="interests[nature&wildlifeexploration]"
+                class="mr-2"
+              />
+              <label for="interestNature & Wildlife Exploration" class="text-sm"
+                >Nature & Wildlife Exploration</label
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label
+            class="block text-gray-700 text-md font-bold mb-2"
+            for="destination"
+            >Preferred Destination:</label
+          >
+          <select
+            id="destination"
+            name="destination"
+            class="shadow border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:shadow-outline"
+          >
+            <option value="">Select a destination</option>
+            <option value="USA">USA</option>
+            <option value="Europe">Europe</option>
+            <option value="Asia">Asia</option>
+            <option value="Africa">Africa</option>
+          </select>
+        </div>
+
+        <div class="flex items-center justify-between">
+          <button
+            type="button"
+            onclick="processForm()"
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Submit
+          </button>
+
+          <button
+            type="reset"
+            class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          >
+            Reset
+          </button>
+        </div>
+        <div class="flex justify-center align-center py-4">
+          <div
+            id="errorMessages"
+            class="mt-4 p-4 border-l-4 border-red-500 bg-red-100 text-md font-semibold text-red-500"
+          ></div>
+        </div>
+
+        <!-- Result Output Box
+        <div
+          id="resultOutput"
+          class="mt-4 p-4 border-l-4 border-green-500 bg-green-100 text-green-700 text-lg"
+        ></div> -->
+
+        <!-- Result Output Box -->
+        <div
+          id="resultOutput"
+          class="mt-4 p-4 border-l-4 border-blue-500 bg-blue-100 text-blue-700 text-lg font-semibold"
+        ></div>
+      </form>
+    </section>
+  </body>
+  <div
+    class="flex justify-center align-center m-6 mb-4 text-blue-600 underline font-bold text-lg"
+  >
+    <a href="../index.html" class="link">Return to Home Page</a>
+  </div>
+</html>

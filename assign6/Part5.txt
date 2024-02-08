@@ -1,0 +1,9 @@
+In Assignment 6, to prevent SQL injection, I have utilized prepared statements in all database operations that involve user input. Prepared statements ensure that user input is never directly inserted into SQL queries, preventing attackers from being able to execute malicious SQL. 
+
+For the DELETE operation, placeholders are used within an IN clause, and an array of movie IDs, which have been validated as integers, is bound to the query at execution time. 
+
+For the INSERT operation, placeholders are used for each field value, and the data is bound to the query at execution time. 
+
+The PDO extension is used with settings that enhance security, such as turning off emulation of prepared statements, which forces the use of native prepared statements, providing stronger security. Additionally, error handling is set to throw exceptions, which allows for handling any errors in a controlled manner.
+
+By adhering to these practices, the risk of SQL injection is significantly mitigated, protecting the integrity and confidentiality of the database.

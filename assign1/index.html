@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Introduction to HTML and CSS - CIS 4930</title>
+    <!-- <link rel="stylesheet" href="../style.css" /> -->
+    <style>
+      /* Base styles */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        background-color: #f4f4f4;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      hr {
+        border: 0;
+        height: 2px;
+        background-color: #333;
+      }
+
+      p,
+      li,
+      td {
+        font-size: 16px;
+        color: #333;
+        margin: 10px;
+      }
+
+      ul,
+      ol {
+        padding-left: 20px;
+        list-style-type: none;
+      }
+
+      a:link,
+      a:visited {
+        color: blue;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 1.1rem;
+      }
+
+      a:hover,
+      a:active {
+        color: darkred;
+        text-decoration: underline;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+      }
+
+      .underline-text {
+        text-decoration: underline;
+      }
+
+      .first-page-paragraph {
+        line-height: 1.7;
+        margin-bottom: 5px;
+        font-size: 1.03rem;
+      }
+      /* content page */
+      .objectives-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 40px;
+      }
+      .objectives-table th,
+      .objectives-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+      .objectives-table th {
+        background-color: #f2f2f2;
+        text-align: left;
+      }
+      .objective-topic {
+        font-weight: bold;
+        color: black;
+      }
+
+      .topic-heading {
+        color: #002646;
+        margin-bottom: 10px;
+      }
+      .content-paragraph {
+        line-height: 1.6;
+        /* color: #333333; */
+        margin-bottom: 40px;
+        padding: 30px;
+        font-size: 1.15rem;
+      }
+
+      /* Assessment Page */
+      .assessment-heading {
+        margin-bottom: 20px;
+        text-decoration: underline;
+        font-size: 1.5rem;
+      }
+
+      .assessment-section {
+        /* display: flex;
+  /* justify-content: center; */
+        align-items: center;
+      }
+
+      .ul-items {
+        margin: 10px;
+      }
+
+      .correct-feedback {
+        color: rgb(1, 44, 1);
+        font-weight: bold;
+        background-color: lightgreen;
+      }
+      .incorrect-feedback {
+        color: rgb(119, 0, 0);
+        font-weight: bold;
+        background-color: rgb(255, 160, 160);
+      }
+
+      .question-list-item {
+        margin-bottom: 20px;
+      }
+
+      .list-item {
+        font-weight: bold;
+        color: black;
+      }
+
+      .img-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /* Assessment & Feedback Page */
+      /* .feedback-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.feedback-table th,
+.feedback-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.feedback-table th {
+  background-color: #f2f2f2;
+}
+
+.feedback-link {
+  color: blue;
+  text-decoration: underline;
+} */
+
+      /* Assessment & Feedback Page */
+      .feedback-table {
+        width: 100%;
+        border-collapse: collapse;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        font-family: Arial, sans-serif;
+        margin-bottom: 20px;
+      }
+
+      .feedback-table th,
+      .feedback-table td {
+        border: 1px solid #e0e0e0;
+        padding: 12px 15px;
+        text-align: left;
+      }
+
+      .feeback-heading {
+        font-size: 2rem;
+        color: black;
+        margin-bottom: 20px;
+        text-decoration: underline;
+      }
+
+      .feedback-table th {
+        background-color: #f9f9f9;
+        color: #333;
+        font-size: 16px;
+      }
+
+      .feedback-link {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .feedback-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+    <script>
+      function checkAnswer(questionNumber, correctAnswer) {
+        var radios = document.getElementsByName('question' + questionNumber);
+        var feedback = document.getElementById('feedback' + questionNumber);
+        for (var i = 0; i < radios.length; i++) {
+          if (radios[i].checked) {
+            var isCorrect = radios[i].value === correctAnswer;
+            feedback.textContent = isCorrect ? 'Correct!' : 'Incorrect :(';
+            feedback.className = isCorrect
+              ? 'correct-feedback'
+              : 'incorrect-feedback';
+            break;
+          }
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <header>
+      <h1>Introduction to HTML and CSS</h1>
+    </header>
+    <hr />
+    <section>
+      <h2>Learning Objectives</h2>
+      <table class="objectives-table">
+        <tr>
+          <td class="objective-topic">
+            Understanding the Basic Structure of HTML
+          </td>
+          <td>
+            Understand the role of HTML in web development, including its syntax
+            and main elements.
+          </td>
+        </tr>
+        <tr>
+          <td class="objective-topic">Exploring the Fundamentals of CSS</td>
+          <td>
+            Learn how CSS enhances the visual presentation of web pages and its
+            application in styling elements.
+          </td>
+        </tr>
+        <tr>
+          <td class="objective-topic">
+            Combining HTML and CSS for Web Development
+          </td>
+          <td>
+            Discover how to integrate HTML structure with CSS styling to create
+            visually appealing web pages.
+          </td>
+        </tr>
+        <tr>
+          <td class="objective-topic">Learning Basic Web Development Tools</td>
+          <td>
+            Familiarize yourself with essential tools for web development,
+            including text editors, SFTP, and basic server interaction.
+          </td>
+        </tr>
+      </table>
+      <!-- Image -->
+      <div class="img-div">
+        <img
+          src="https://miro.medium.com/v2/resize:fit:960/1*OlyP02fRFe8pEkJgb6vGTQ.png"
+          alt="HTML and CSS Concepts"
+          class="img-tag"
+        />
+      </div>
+
+      <!-- Learning Content -->
+      <section>
+        <a name="question1"></a>
+        <a name="question5"></a>
+        <h2 class="topic-heading" id="part1">Introduction to HTML</h2>
+        <p class="content-paragraph">
+          HTML (Hypertext Markup Language) is the cornerstone of any website. It
+          provides the essential structure for web pages, allowing us to define
+          elements such as headings, paragraphs, links, and images. HTML uses a
+          series of elements or 'tags', which dictate how the content within
+          them should be structured and interpreted by web browsers. As we delve
+          into HTML, you will learn about different tags, such as &lt;h1&gt; for
+          headings and &lt;p&gt; for paragraphs, and how they contribute to the
+          overall layout of your webpage.
+        </p>
+
+        <a name="question2"></a>
+        <h2 class="topic-heading" id="part2">The Role of CSS in Web Design</h2>
+        <p class="content-paragraph">
+          CSS (Cascading Style Sheets) plays a critical role in web design,
+          offering the tools to style and format HTML content. It allows you to
+          control the layout of multiple web pages all at once and modify the
+          appearance of your site, including colors, fonts, and spacing. Through
+          CSS, we can create visually compelling and user-friendly interfaces.
+          By understanding CSS selectors, properties, and values, you'll gain
+          the ability to create more dynamic and responsive web pages.
+        </p>
+
+        <a name="question3"></a>
+        <h2 class="topic-heading" id="part3">Integrating HTML and CSS</h2>
+        <p class="content-paragraph">
+          The real power of web design lies in the combination of HTML and CSS.
+          While HTML forms the backbone of your web content, CSS adds aesthetic
+          appeal, making your website engaging and accessible. In this course,
+          you'll learn how to link CSS to HTML and apply styles to specific HTML
+          elements. This integration is crucial for designing websites that are
+          not only functional but also aesthetically pleasing.
+        </p>
+
+        <a name="question4"></a>
+        <h2 class="topic-heading" id="part4">
+          Essential Tools for Web Development
+        </h2>
+        <p class="content-paragraph">
+          To effectively work in web development, familiarity with certain tools
+          is essential. A robust text editor, such as Notepad++, will be your
+          primary tool for writing and editing your HTML and CSS code. For
+          uploading your website to a server, knowledge of Secure File Transfer
+          Protocol (SFTP) tools like FileZilla is crucial. Additionally,
+          understanding basic Linux commands and using a Secure Shell (SSH)
+          client like PuTTY for server interactions will greatly facilitate your
+          web development process. These tools are fundamental to creating,
+          managing, and deploying your web projects.
+        </p>
+      </section>
+
+      <section class="assessment-section">
+        <h3 class="assessment-heading">Assessment</h3>
+        <ol>
+          <!-- Question 1 -->
+          <li class="question-list-item">
+            <span class="list-item"
+              >1. Define HTML and its role in web development.</span
+            >
+            <ul class="ul-items">
+              <li>
+                <input
+                  type="radio"
+                  name="question1"
+                  value="A"
+                  onclick="checkAnswer(1, 'B')"
+                />
+                A) A programming language for server-side scripting
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question1"
+                  value="B"
+                  onclick="checkAnswer(1, 'B')"
+                />
+                B) A markup language for structuring web content
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question1"
+                  value="C"
+                  onclick="checkAnswer(1, 'B')"
+                />
+                C) A style sheet language for designing web apps
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question1"
+                  value="D"
+                  onclick="checkAnswer(1, 'B')"
+                />
+                D) A database management system
+              </li>
+            </ul>
+            <span id="feedback1" class="answer-block"></span>
+          </li>
+          <!-- Question 2 -->
+          <li class="question-list-item">
+            <span class="list-item"
+              >2. Describe the purpose of CSS in web design.</span
+            >
+            <ul class="ul-items">
+              <li>
+                <input
+                  type="radio"
+                  name="question2"
+                  value="A"
+                  onclick="checkAnswer(2, 'C')"
+                />
+                A) To create interactive elements
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question2"
+                  value="B"
+                  onclick="checkAnswer(2, 'C')"
+                />
+                B) To manage the database
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question2"
+                  value="C"
+                  onclick="checkAnswer(2, 'C')"
+                />
+                C) To style and layout web pages
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question2"
+                  value="D"
+                  onclick="checkAnswer(2, 'C')"
+                />
+                D) To write server-side scripts
+              </li>
+            </ul>
+            <span id="feedback2"></span>
+          </li>
+          <!-- Question 3 -->
+          <li class="question-list-item">
+            <span class="list-item"
+              >3. Explain how HTML and CSS work together to build web
+              pages.</span
+            >
+            <ul class="ul-items">
+              <li>
+                <input
+                  type="radio"
+                  name="question3"
+                  value="A"
+                  onclick="checkAnswer(3, 'C')"
+                />
+                A) HTML structures the content, CSS adds interactivity
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question3"
+                  value="B"
+                  onclick="checkAnswer(3, 'C')"
+                />
+                B) HTML creates the design, CSS structures the content
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question3"
+                  value="C"
+                  onclick="checkAnswer(3, 'C')"
+                />
+                C) HTML structures the content, CSS styles it
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question3"
+                  value="D"
+                  onclick="checkAnswer(3, 'C')"
+                />
+                D) Both HTML and CSS are used for structuring content
+              </li>
+            </ul>
+            <span id="feedback3"></span>
+          </li>
+          <!-- Question 4 -->
+          <li class="question-list-item">
+            <span class="list-item"
+              >4. Discuss the importance of file management and SFTP in web
+              development.</span
+            >
+            <ul class="ul-items">
+              <li>
+                <input
+                  type="radio"
+                  name="question4"
+                  value="A"
+                  onclick="checkAnswer(4, 'B')"
+                />
+                A) Essential for database management
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question4"
+                  value="B"
+                  onclick="checkAnswer(4, 'B')"
+                />
+                B) Critical for secure file transfer and organization
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question4"
+                  value="C"
+                  onclick="checkAnswer(4, 'B')"
+                />
+                C) Used for styling web pages
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question4"
+                  value="D"
+                  onclick="checkAnswer(4, 'B')"
+                />
+                D) Not relevant to web development
+              </li>
+            </ul>
+            <span id="feedback4"></span>
+          </li>
+          <!-- Question 5 -->
+          <li class="question-list-item">
+            <span class="list-item"
+              >5. Identify key HTML tags and their purposes.</span
+            >
+            <ul class="ul-items">
+              <li>
+                <input
+                  type="radio"
+                  name="question5"
+                  value="A"
+                  onclick="checkAnswer(5, 'C')"
+                />
+                A) &lt;div&gt; and &lt;span&gt; for adding style
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question5"
+                  value="B"
+                  onclick="checkAnswer(5, 'C')"
+                />
+                B) &lt;table&gt; and &lt;tr&gt; for scripting
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question5"
+                  value="C"
+                  onclick="checkAnswer(5, 'C')"
+                />
+                C) &lt;h1&gt; and &lt;p&gt; for structuring content
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="question5"
+                  value="D"
+                  onclick="checkAnswer(5, 'C')"
+                />
+                D) &lt;css&gt; and &lt;script&gt; for linking CSS and JavaScript
+              </li>
+            </ul>
+            <span id="feedback5"></span>
+          </li>
+        </ol>
+      </section>
+    </section>
+
+    <!-- link to assessment page -->
+    <a href="../assign1/assessment.html" class="link"
+      >Visit Assessment & Feedback Page</a
+    >
+    Or <a href="../index.html" class="link">Return to Home Page.</a>
+    <footer>
+      <p>&copy; 2024. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
